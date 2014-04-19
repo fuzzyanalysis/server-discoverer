@@ -1,4 +1,4 @@
-package com.datasciencebox.serverdiscoverer.bo;
+package com.datasciencebox.serverdiscoverer.dao;
 
 public interface DAO {
 
