@@ -1,5 +1,5 @@
 
-package com.datasciencebox.serverdiscoverer.ui;
+package com.datasciencebox.serverdiscoverer.ui.server;
 
 
 import java.sql.DriverManager;
@@ -26,9 +26,11 @@ public class Launcher {
 		// 		a. character-size based
 		//		b. exhaustive
 		//		c. 
-		ServerDAO server = ServerBO.newServer();
+		ServerDAO server = ServerBO.newServer("192.168.0.105");
 		
 		server.connect();
+		
+		server.getSockets();
 
 
 		

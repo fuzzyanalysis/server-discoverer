@@ -4,9 +4,9 @@ import com.datasciencebox.serverdiscoverer.dao.server.ServerDAO;
 
 public class ServerBO {
 
-	public static ServerDAO newServer() {
+	public static ServerDAO newServer(String ip) {
 
-		return new ServerDAO();
+		return new ServerDAO(ip);
 	
 	}
 	
