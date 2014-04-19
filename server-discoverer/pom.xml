@@ -23,5 +23,12 @@
 			<artifactId>oracle12c</artifactId>
 			<version>12.0.0</version>
 		</dependency>
+		<dependency>
+			<modelVersion>4.0.0</modelVersion>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+			<version>3.3</version>
+			<name>Commons Net</name>
+		</dependency>
 	</dependencies>
 </project>

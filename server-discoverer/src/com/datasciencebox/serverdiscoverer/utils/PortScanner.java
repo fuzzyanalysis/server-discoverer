@@ -1,11 +1,7 @@
 package com.datasciencebox.serverdiscoverer.utils;
 
 import java.net.*;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-
-import javax.swing.*;
 
 public class PortScanner {
 
@@ -16,33 +12,16 @@ public class PortScanner {
 
 		try {
 
-			host = JOptionPane
-					.showInputDialog("Enter the Host name to scan:\n example: xxx.com");
-			if (host != null) {
-				ia = InetAddress.getByName(host);
-						
+			host = "www.asu.edu";
 			
-				URL url = new URL("http://" + ia.getHostName());
-			    
-				HttpURLConnection urlc = (HttpURLConnection)url.openConnection();
-				urlc.connect();
-				
-				if(urlc.getResponseCode() == 200) {
-				
-					System.out.println(" YES!! ");
-					
-				} else {
-					System.out.println(" Something went wrong: " + urlc.getResponseCode() );
-				}
-		        
+			//host = JOptionPane.showInputDialog("Enter the Host name to scan:\n example: xxx.com");
+			if (host != null) {
+				ia = InetAddress.getByName(host);		        
 		        scan(ia);	
 			}
 			
 		} catch (UnknownHostException e) {
 			System.err.println(e);
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
