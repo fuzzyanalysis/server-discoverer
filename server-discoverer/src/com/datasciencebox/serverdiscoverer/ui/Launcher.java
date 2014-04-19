@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import com.datasciencebox.serverdiscoverer.bo.server.ServerBO;
+import com.datasciencebox.serverdiscoverer.dao.server.ServerDAO;
 
 
 public class Launcher {
@@ -25,8 +26,9 @@ public class Launcher {
 		// 		a. character-size based
 		//		b. exhaustive
 		//		c. 
-		ServerBO.
+		ServerDAO server = ServerBO.newServer();
 		
+		server.connect();
 
 
 		
