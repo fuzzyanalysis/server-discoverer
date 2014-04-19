@@ -31,7 +31,12 @@ public class Main {
 					try {
 						endTime = System.nanoTime();
 						totalTime = endTime - startTime;
-						thread.currentThread().sleep(5000);
+						if(totalTime > 50000) {
+							thread.currentThread().stop();
+						} else {
+							thread.currentThread().sleep(5000);	
+						}
+						
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
