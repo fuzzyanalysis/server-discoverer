@@ -1,8 +1,12 @@
 package com.datasciencebox.serverdiscoverer.dao.server;
 
-public interface ServerDAO extends DAO{
+import java.util.Map;
 
-	public String addServer(Server server);
+public class ServerDAO {
+
+	public String ip;
+	public String domainName;
+	public Map<String, String> ports;
 	
 	
 }
