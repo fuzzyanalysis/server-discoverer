@@ -41,8 +41,7 @@ public class Scan implements Runnable {
 				Socket s;
 				try {
 					s = new Socket(ia, port);
-					System.out.println("Server is listening on port " + port
-							+ " of " + host);
+					System.out.println(port + " open.");
 					s.close();
 
 				} catch (Exception ex) {
