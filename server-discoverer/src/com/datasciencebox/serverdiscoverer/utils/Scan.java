@@ -5,7 +5,10 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import oracle.net.aso.s;
+
 import org.apache.commons.net.whois.WhoisClient;
+import org.omg.CosNaming._BindingIteratorImplBase;
 
 /**
  * * MyRunnable will count the sum of the number from 1 to the parameter *
@@ -33,22 +36,19 @@ public class Scan implements Runnable {
 			// host =
 			// JOptionPane.showInputDialog("Enter the Host name to scan:\n example: xxx.com");
 
-			System.out.println("Beginning scan...");
-
 			if (host != null) {
 				ia = InetAddress.getByName(host);
-
+				Socket s;
 				try {
-					Socket s = new Socket(ia, port);
+					s = new Socket(ia, port);
 					System.out.println("Server is listening on port " + port
 							+ " of " + host);
 					s.close();
 
-				} catch (IOException ex) {
-					// The remote host is not listening on this port
-					System.out.println("x " + port + " ( " + host + " ) - "
-							+ ex.getMessage());
+				} catch (Exception ex) {
+					return;
 				}
+
 			}
 
 		} catch (UnknownHostException e) {
