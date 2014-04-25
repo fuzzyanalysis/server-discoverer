@@ -1,7 +1,9 @@
-package com.datasciencebox.serverdiscoverer.utils;
+package com.datasciencebox.serverdiscoverer.reversednslookup;
 
 import java.util.Date;
 import java.util.List;
+
+import com.datasciencebox.serverdiscoverer.utils.Port;
 
 public class Server {
 	
@@ -9,19 +11,19 @@ public class Server {
 	public String domainName;
 	public List<Port> ports;
 	public Date dateScanned;
-	private String lattitude;
-	private String longtitude;
+	private float lattitude;
+	private float longitude;
 	private String country;
 	
 	
 	public Server() {}
 	
-	public Server(String ip, String domainName, String lattitude, String longtitude, String country, Date dateScanned) {
+	public Server(String ip, String domainName, float lattitude, float longitude, String country, Date dateScanned) {
 		
 		this.ip = ip;
 		this.domainName = domainName;
 		this.lattitude = lattitude;
-		this.longtitude = longtitude;
+		this.longitude = longitude;
 		this.country = country;
 		this.dateScanned = dateScanned;
 		
@@ -63,20 +65,20 @@ public class Server {
 		this.dateScanned = dateScanned;
 	}
 
-	public String getLattitude() {
+	public float getLattitude() {
 		return lattitude;
 	}
 
-	public void setLattitude(String lattitude) {
-		this.lattitude = lattitude;
+	public void setLattitude(float latitude) {
+		this.lattitude = latitude;
 	}
 
-	public String getLongtitude() {
-		return longtitude;
+	public float getLongtitude() {
+		return longitude;
 	}
 
-	public void setLongtitude(String longtitude) {
-		this.longtitude = longtitude;
+	public void setLongtitude(float longitude) {
+		this.longitude = longitude;
 	}
 
 	public String getCountry() {
@@ -86,7 +88,5 @@ public class Server {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-
-
 	
 }

@@ -3,8 +3,8 @@ package com.datasciencebox.serverdiscoverer.reversednslookup;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.concurrent.ExecutorService;
 
-import com.datasciencebox.serverdiscoverer.utils.Server;
 import com.maxmind.geoip.Location;
 import com.maxmind.geoip.LookupService;
 
@@ -35,15 +35,23 @@ public class DNSLookup implements Runnable {
 							| LookupService.GEOIP_CHECK_CACHE);
 			Location location = cl.getLocation(ip);		    			            
 			
+			Server server = new Server();
+			
+			server.setIp(ip);
+			server.setDomainName(canonicalHostname);
+			server.setLongtitude(location.longitude);
+			server.setLattitude(location.latitude);
+			server.setCountry(location.countryName);
+						
 			System.out.println("IP: " + ip);
-			System.out.println("Canonical Hostname: " + canonicalHostname);
-			System.out.println("Lattitude, Longtitude: " + location.latitude + ", " + location.longitude);
-			System.out.println("Location: " + location.city + ", " + location.countryName);
-			System.out.println("==============================");
+			System.out.println("Canonical Hostname: " + server.getDomainName());
+			System.out.println("Lattitude, Longtitude: " + server.getLattitude() + ", " + server.getLongtitude());
+			System.out.println("Location: " + server.getCountry());
+			System.out.println("==============================");	
 			
 			if(saveToDB) {
 				
-				Server server = new Server();
+				
 			}
 			
 		} catch (UnknownHostException e) {
