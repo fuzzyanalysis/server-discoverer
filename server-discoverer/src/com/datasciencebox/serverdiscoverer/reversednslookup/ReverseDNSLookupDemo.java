@@ -1,4 +1,4 @@
-package com.datasciencebox.serverdiscoverer.utils;
+package com.datasciencebox.serverdiscoverer.reversednslookup;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;

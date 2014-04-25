@@ -1,4 +1,4 @@
-package com.datasciencebox.serverdiscoverer.utils;
+package com.datasciencebox.serverdiscoverer.reversednslookup;
 
 import java.io.IOException;
 import java.net.InetAddress;

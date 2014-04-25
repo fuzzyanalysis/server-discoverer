@@ -14,7 +14,7 @@ public class Scanner {
 
 	public static void main(final String... args) {
 		final ExecutorService es = Executors.newFixedThreadPool(20);
-		final String ip = "127.0.0.1";
+		final String ip = "203.213.240.2";
 		final int timeout = 200;
 		final List<Future<Boolean>> futures = new ArrayList<>();
 		for (int port = 1; port <= 65535; port++) {
