@@ -18,8 +18,7 @@ public class ReverseDNSLookupDemo {
 
 						String ip = a + "." + b + "." + c + "." + d;
 
-						ExecutorService executor = Executors
-								.newSingleThreadExecutor();
+						ExecutorService executor = Executors.newSingleThreadExecutor();
 						Future<?> future = executor.submit(new DNSLookup(ip));
 
 						try {

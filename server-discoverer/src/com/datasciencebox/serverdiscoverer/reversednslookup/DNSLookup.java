@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+import com.datasciencebox.serverdiscoverer.utils.Server;
 import com.maxmind.geoip.Location;
 import com.maxmind.geoip.LookupService;
 
@@ -21,6 +22,9 @@ public class DNSLookup implements Runnable {
         try {
         	// get InetAddress
         	InetAddress inetAddr = InetAddress.getByName(ip);
+        	
+        	// save to database?
+        	boolean saveToDB = true;
 
 			// Get canonical host name
 			String canonicalHostname = inetAddr.getCanonicalHostName();
@@ -33,8 +37,15 @@ public class DNSLookup implements Runnable {
 			
 			System.out.println("IP: " + ip);
 			System.out.println("Canonical Hostname: " + canonicalHostname);
+			System.out.println("Lattitude, Longtitude: " + location.latitude + ", " + location.longitude);
 			System.out.println("Location: " + location.city + ", " + location.countryName);
 			System.out.println("==============================");
+			
+			if(saveToDB) {
+				
+				Server server = new Server();
+			}
+			
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
