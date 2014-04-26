@@ -5,6 +5,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.concurrent.ExecutorService;
 
+import com.datasciencebox.serverdiscoverer.dao.server.Server;
 import com.maxmind.geoip.Location;
 import com.maxmind.geoip.LookupService;
 

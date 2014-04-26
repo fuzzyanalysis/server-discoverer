@@ -1,4 +1,4 @@
-package com.datasciencebox.serverdiscoverer.reversednslookup;
+package com.datasciencebox.serverdiscoverer.dao.server;
 
 import java.util.Date;
 import java.util.List;

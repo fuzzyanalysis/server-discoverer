@@ -1,12 +1,18 @@
 package com.datasciencebox.serverdiscoverer.dao.server;
 
+import java.beans.Statement;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Map;
+
+import org.omg.CORBA.PUBLIC_MEMBER;
+import org.omg.CosNaming._BindingIteratorImplBase;
 
 public class ServerDAO {
 
@@ -15,14 +21,36 @@ public class ServerDAO {
 	public Map<String, String> sockets;
 	
     int startPortRange=0;  
-    int stopPortRange=65365;   
+    int stopPortRange=65365;
+    
+    Connection connection = null;
 	
 	public ServerDAO(String ip) {
 
 		this.ip = ip;
 	}
 	
-
+	
+	
+	public Server newServer() {
+		return new Server();
+	}
+	
+	public boolean updateServer(Server server) {
+		
+		if(connect()) {
+			
+			public static String UPDATE_SERVER_SQL = ""
+			
+			PreparedStatement ps = connection.prepareStatement("");			
+			ResultSet rs = ps.executeQuery();
+			
+		}
+		
+		
+		
+	}
+	
 	public boolean connect() {
 		
 		System.out.println("-------- Oracle JDBC Connection Testing ------");
@@ -40,8 +68,7 @@ public class ServerDAO {
 		}
  
 		System.out.println("Oracle JDBC Driver Registered!");
- 
-		Connection connection = null;
+ 		
  
 		try {
  
