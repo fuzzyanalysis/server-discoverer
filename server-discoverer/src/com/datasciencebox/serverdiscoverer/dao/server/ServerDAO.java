@@ -23,7 +23,7 @@ public class ServerDAO {
     int startPortRange=0;  
     int stopPortRange=65365;
     
-    Connection connection = null;
+    static Connection connection = null;
 	
 	public ServerDAO(String ip) {
 
@@ -35,23 +35,29 @@ public class ServerDAO {
 	public Server newServer() {
 		return new Server();
 	}
-	
-	public boolean updateServer(Server server) {
+		
+	public static boolean updateServer(Server server) {
 		
 		if(connect()) {
 			
-			public static String UPDATE_SERVER_SQL = ""
-			
-			PreparedStatement ps = connection.prepareStatement("");			
-			ResultSet rs = ps.executeQuery();
+			try {
+				String UPDATE_SERVER_SQL = "";
+				
+				PreparedStatement ps = connection.prepareStatement("");			
+				ResultSet rs = ps.executeQuery();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 		}
+		return false;
 		
 		
 		
 	}
 	
-	public boolean connect() {
+	public static boolean connect() {
 		
 		System.out.println("-------- Oracle JDBC Connection Testing ------");
 		 

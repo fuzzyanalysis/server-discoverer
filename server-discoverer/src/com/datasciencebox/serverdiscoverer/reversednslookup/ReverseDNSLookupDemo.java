@@ -1,16 +1,11 @@
 package com.datasciencebox.serverdiscoverer.reversednslookup;
 
-import java.net.InetSocketAddress;
-import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 public class ReverseDNSLookupDemo {
 
@@ -20,19 +15,18 @@ public class ReverseDNSLookupDemo {
 			for (int b = 192; b < 256; b++) {
 				for (int c = 192; c < 256; c++) {
 					
-					int threadCount = 20;
+					int threadCount = 2;
 
 					//ExecutorService executor = Executors.newSingleThreadExecutor();
 					ExecutorService executor = Executors.newFixedThreadPool(threadCount);
 					final List<Future<Boolean>> futures = new ArrayList<>();
 				
-					for (int d = 192; d < 256; d++) {						
+					for (int d = 192; d < 256; d+=threadCount) {						
 
 						// add ip calls as threads
-						for(int x=0; x<threadCount && (x+d)<256; x++) {
-							String ip = a + "." + b + "." + c + "." + (d+x);
-							futures.add(lookup(executor, ip));
-							d++;
+						for(int x=0; x<threadCount && (d+threadCount-x)<256; x++) {
+							String ip = a + "." + b + "." + c + "." + (d+threadCount-x);
+							futures.add(lookup(executor, ip));							
 						}
 											
 					}

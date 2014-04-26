@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/04/2014 1:03:11 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.datasciencebox.serverdiscoverer.dao.server.Server"
+		table="SERVER" schema="SCOTT">
+		<id name="serverIpAddress" type="string">
+			<column name="SERVER_IP_ADDRESS" length="20" not-null="true" />
+		</id>
+		<property name="serverDomainName" type="string">
+			<column name="SERVER_DOMAIN_NAME" length="80" />
+		</property>
+		<property name="serverLattitude" type="big_decimal">
+			<column name="SERVER_LATTITUDE" precision="4" scale="4" />
+		</property>
+		<property name="serverLongitude" type="big_decimal">
+			<column name="SERVER_LONGITUDE" precision="4" scale="4" />
+		</property>
+		<property name="serverCity" type="string">
+			<column name="SERVER_CITY" length="50" />
+		</property>
+		<property name="serverCountry" type="string">
+			<column name="SERVER_COUNTRY" length="50" />
+		</property>
+		<property name="dateModified" type="date">
+			<column name="DATE_MODIFIED" length="7" />
+		</property>
+	</class>
+</hibernate-mapping>

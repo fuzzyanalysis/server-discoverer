@@ -8,5 +8,14 @@
         <property name="hibernate.connection.password">Sc0ttSc0tt</property>
         <property name="hibernate.connection.url">jdbc:oracle:thin:@192.168.0.105:1521:orcl</property>
         <property name="hibernate.connection.username">scott</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+            <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+        <mapping resource="com/datasciencebox/serverdiscoverer/dao/server/Server.hbm.xml" />
     </session-factory>
 </hibernate-configuration>

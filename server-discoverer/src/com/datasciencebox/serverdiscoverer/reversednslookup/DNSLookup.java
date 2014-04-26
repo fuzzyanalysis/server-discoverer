@@ -1,11 +1,13 @@
 package com.datasciencebox.serverdiscoverer.reversednslookup;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.concurrent.ExecutorService;
+import java.util.Date;
 
 import com.datasciencebox.serverdiscoverer.dao.server.Server;
+import com.datasciencebox.serverdiscoverer.dao.server.ServerHome;
 import com.maxmind.geoip.Location;
 import com.maxmind.geoip.LookupService;
 
@@ -36,23 +38,27 @@ public class DNSLookup implements Runnable {
 							| LookupService.GEOIP_CHECK_CACHE);
 			Location location = cl.getLocation(ip);		    			            
 			
-			Server server = new Server();
+			Server server = new Server(ip);
+					
 			
-			server.setIp(ip);
-			server.setDomainName(canonicalHostname);
-			server.setLongtitude(location.longitude);
-			server.setLattitude(location.latitude);
-			server.setCountry(location.countryName);
+			server.setServerIpAddress(ip);
+			server.setServerDomainName(canonicalHostname);
+			server.setServerLongitude(new BigDecimal(Float.toString(location.longitude)));
+			server.setServerLattitude(new BigDecimal(Float.toString(location.latitude)));
+			server.setServerCity(location.city);
+			server.setServerCountry(location.countryName);
+			server.setDateModified(new Date());
 						
 			System.out.println("IP: " + ip);
-			System.out.println("Canonical Hostname: " + server.getDomainName());
-			System.out.println("Lattitude, Longtitude: " + server.getLattitude() + ", " + server.getLongtitude());
-			System.out.println("Location: " + server.getCountry());
+			System.out.println("Canonical Hostname: " + server.getServerDomainName());
+			System.out.println("Lattitude, Longtitude: " + server.getServerLattitude() + ", " + server.getServerLongitude());
+			System.out.println("Location: " + server.getServerCountry());
 			System.out.println("==============================");	
 			
 			if(saveToDB) {
 				
-				
+				ServerHome serverHome = new ServerHome();
+				serverHome.add(server);				
 			}
 			
 		} catch (UnknownHostException e) {
