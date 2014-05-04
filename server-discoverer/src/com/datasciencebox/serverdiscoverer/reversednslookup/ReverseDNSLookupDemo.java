@@ -12,10 +12,10 @@ public class ReverseDNSLookupDemo {
 	public static void main(String[] args) {
 
 		for (int a = 192; a < 256; a++) {
-			for (int b = 192; b < 256; b++) {
+			for (int b = 197; b < 256; b++) {
 				for (int c = 192; c < 256; c++) {
 					
-					int threadCount = 2;
+					int threadCount = 3;
 
 					//ExecutorService executor = Executors.newSingleThreadExecutor();
 					ExecutorService executor = Executors.newFixedThreadPool(threadCount);
