@@ -41,7 +41,7 @@
 		</plugins>
 		<resources>
 			<resource>
-				<directory> [your folder here] </directory>
+				<directory>resources</directory>
 			</resource>
 		</resources>
 	</build>

@@ -16,6 +16,6 @@
         <property name="show_sql">true</property>
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">update</property>
-        <mapping resource="com/datasciencebox/serverdiscoverer/dao/server/Server.hbm.xml" />
+        <mapping resource="Server.hbm.xml" />
     </session-factory>
 </hibernate-configuration>
