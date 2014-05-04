@@ -39,6 +39,11 @@
 				</executions>
 			</plugin>
 		</plugins>
+		<resources>
+			<resource>
+				<directory> [your folder here] </directory>
+			</resource>
+		</resources>
 	</build>
 	<dependencies>
 		<dependency>

@@ -33,7 +33,7 @@ public class DNSLookup implements Runnable {
 			String canonicalHostname = inetAddr.getCanonicalHostName();
 			 
 			// get Server location
-			LookupService cl = new LookupService("GeoLiteCity.dat",
+			LookupService cl = new LookupService("resources/GeoLiteCity.dat",
 					LookupService.GEOIP_MEMORY_CACHE
 							| LookupService.GEOIP_CHECK_CACHE);
 			Location location = cl.getLocation(ip);		    			            

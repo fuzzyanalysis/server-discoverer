@@ -15,7 +15,7 @@ public class ReverseDNSLookupDemo {
 			for (int b = 197; b < 256; b++) {
 				for (int c = 192; c < 256; c++) {
 					
-					int threadCount = 3;
+					int threadCount = 1;
 
 					//ExecutorService executor = Executors.newSingleThreadExecutor();
 					ExecutorService executor = Executors.newFixedThreadPool(threadCount);
